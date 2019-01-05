@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jan 2019 pada 14.32
+-- Waktu pembuatan: 05 Jan 2019 pada 15.01
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 5.6.38
 
@@ -51,17 +51,14 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` text NOT NULL,
-  `category_id(FK categories.id)` text NOT NULL
+  `category` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `category_id(FK categories.id)`) VALUES
-(1, 'Sampo, Sikat Gigi', 'Peralatan Mandi'),
-(2, 'Indonmie goreng spesial, mie sedap soto, rock mie baso ', 'Mie Instan'),
-(3, 'Olahan Daging', 'nuget,'),
+INSERT INTO `products` (`id`, `name`, `category`) VALUES
 (1, 'Sampo, Sikat Gigi', 'Peralatan Mandi'),
 (2, 'Indonmie goreng spesial, mie sedap soto, rock mie baso ', 'Mie Instan'),
 (3, 'Olahan Daging', 'nuget,');
@@ -77,6 +74,12 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -85,6 +88,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
